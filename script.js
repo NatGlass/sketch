@@ -12,13 +12,20 @@ for (let i = 0; i < NUMBER_OF_SQUARES; i++) {
   console.log(color);
 
   SQUARE.addEventListener("mouseover", (e) => {
-    e.currentTarget.style.background = `#${color}`;
-    e.currentTarget.style.border = `#${color}`;
+    e.currentTarget.style.background = `rgba(${color})`;
+    e.currentTarget.style.border = `rgba(${color})`;
   });
 }
 
 function generateRandomColor() {
-  let rgb = Math.floor(Math.random() * 999999);
+  let red = Math.floor(Math.random() * 255);
+  let green = Math.floor(Math.random() * 255);
+  let blue = Math.floor(Math.random() * 255);
+  let alpha = Math.random();
 
-  return rgb;
+  console.log(red, green, blue, alpha);
+
+  let rgba = [red, green, blue, alpha];
+
+  return rgba.join(",");
 }
