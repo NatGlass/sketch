@@ -1,5 +1,5 @@
 // 16x16 = 256
-const NUMBER_OF_SQUARES = 20;
+const NUMBER_OF_SQUARES = 256;
 
 const GRID_CONTAINER = document.getElementById("grid-container");
 
