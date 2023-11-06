@@ -1,15 +1,15 @@
-// 16x16 = 256
-const NUMBER_OF_SQUARES = 256;
+let numberOfSquares = 20;
 
 const GRID_CONTAINER = document.getElementById("grid-container");
+const RESIZE_CANVAS_BUTTON = document.getElementById("resize-btn");
 
-for (let i = 0; i < NUMBER_OF_SQUARES; i++) {
+GRID_CONTAINER.style.gridTemplateColumns = numberOfSquares;
+
+for (let i = 0; i < numberOfSquares * 2; i++) {
   const SQUARE = document.createElement("div");
   GRID_CONTAINER.appendChild(SQUARE);
 
   let color = generateRandomColor();
-
-  console.log(color);
 
   SQUARE.addEventListener("mouseover", (e) => {
     e.currentTarget.style.background = `rgba(${color})`;
@@ -29,3 +29,28 @@ function generateRandomColor() {
 
   return rgba.join(",");
 }
+
+function changeGridSize() {
+  let userDefinedNumber = parseInt(window.prompt("Enter a grid size"));
+
+  if (isNaN(userDefinedNumber)) {
+    alert("Input must be a number");
+    return;
+  }
+
+  if (userDefinedNumber < 4) {
+    alert("Grid cannot be smaller than 4x4");
+    return;
+  }
+
+  if (userDefinedNumber > 100) {
+    alert("Grid cannot be bigger than 100x100");
+    return;
+  }
+
+  GRID_CONTAINER.style.gridTemplateColumns = `repeat(${userDefinedNumber}, auto)`;
+}
+
+RESIZE_CANVAS_BUTTON.addEventListener("click", () => {
+  changeGridSize();
+});
