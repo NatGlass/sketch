@@ -53,4 +53,17 @@ function changeGridSize() {
 
 RESIZE_CANVAS_BUTTON.addEventListener("click", () => {
   changeGridSize();
+  resizeSquares();
 });
+
+function resizeSquares() {
+  if (numberOfSquares >= 30) {
+    SQUARE.style.width = "25px";
+  } else if (numberOfSquares >= 40) {
+    SQUARE.style.width = "20px";
+  } else if (numberOfSquares >= 50) {
+    SQUARE.style.width = "5px";
+  } else {
+    SQUARE.style.width = "50px";
+  }
+}
