@@ -1,0 +1,3 @@
+// 16x16 = 256
+const NUMBER_OF_SQUARES = 256;
+
