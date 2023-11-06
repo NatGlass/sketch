@@ -33,7 +33,7 @@ function generateRandomColor() {
 function changeGridSize() {
   let userDefinedNumber = parseInt(window.prompt("Enter a grid size"));
 
-  if (isNaN(userDefinedNumber)) {
+  if (isNaN(userDefinedNumber)) {S
     alert("Input must be a number");
     return;
   }
@@ -47,23 +47,10 @@ function changeGridSize() {
     alert("Grid cannot be bigger than 100x100");
     return;
   }
-
-  GRID_CONTAINER.style.gridTemplateColumns = `repeat(${userDefinedNumber}, auto)`;
+  
+  GRID_CONTAINER.style.gridTemplateColumns = `repeat(${userDefinedNumber}, auto`;
 }
 
 RESIZE_CANVAS_BUTTON.addEventListener("click", () => {
   changeGridSize();
-  resizeSquares();
 });
-
-function resizeSquares() {
-  if (numberOfSquares >= 30) {
-    SQUARE.style.width = "25px";
-  } else if (numberOfSquares >= 40) {
-    SQUARE.style.width = "20px";
-  } else if (numberOfSquares >= 50) {
-    SQUARE.style.width = "5px";
-  } else {
-    SQUARE.style.width = "50px";
-  }
-}
